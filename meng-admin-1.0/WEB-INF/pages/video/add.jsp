@@ -373,7 +373,7 @@
         var btn = document.getElementById('btn');
         //  btn.value = '上传中..';//将按钮value值改为同意
         //  btn.disabled = true;//将按钮disabled值改为false
-        var file = $("#video")[0].files[0];
+        //var file = $("#video")[0].files[0];
         var classifyId = $("select[name=classifyId]").val();
         var title = $("input[name=title]").val();
         var previewImg = $("input[name=previewImg]").val();
@@ -382,7 +382,7 @@
         var videoTxid = $("input[name=videoTxid]").val()
         var address = $("input[name=address]").val()
         var fd = new FormData();
-        fd.append("files", file);
+        //fd.append("files", file);
         fd.append("classifyId", classifyId);
         fd.append("previewImg", previewImg);
         fd.append("title", title);
