@@ -15,5 +15,3 @@
     var apiHost = path + "/api/json";
     path = apiHost;
 </script>
-
-
