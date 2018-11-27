@@ -209,7 +209,7 @@
 
     function userRecommend(id,flag) {
         layer.confirm('确认推荐/取消推荐此课程吗？',function(index) {
-            Project.ajaxUploadVideoFile("/live/user/recommand",{id:id,flag:flag},null,true).ajaxOK(function(data) {
+            Project.ajax("/live/user/recommand",{id:id,flag:flag},null,true).ajaxOK(function(data) {
                 layer.msg('成功!',{icon: 6,time:1000});
                 findUser();//刷新
             });

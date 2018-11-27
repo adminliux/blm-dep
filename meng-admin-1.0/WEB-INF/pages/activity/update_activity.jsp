@@ -56,7 +56,7 @@
 <body>
 <!--对话框  -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" style="width: 800px;">
+     aria-labelledby="myModalLabel" style="width: 800px;" hidden>
 
     <div class="modal-dialog" role="document" style="width: 800px;">
 
@@ -133,9 +133,9 @@
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>报名选项：</label>
         <div class="formControls col-xs-8 col-sm-9 apply">
-            <input type="checkbox" class="input-text" value="0" name="apply"/>是否团体赛
-            <input type="checkbox" class="input-text" value="0" name="apply"/>是否分赛区
-            <input type="checkbox" class="input-text" value="0" name="apply"/>是否线下比赛
+            <input type="checkbox" class="input-text" value="0" data-apple="0" name="apply"/>是否团体赛
+            <input type="checkbox" class="input-text" value="0" data-apple="1" name="apply"/>是否分赛区
+            <input type="checkbox" class="input-text" value="0" data-apple="2" name="apply"/>是否线下比赛
         </div>
     </div>
     <br>
@@ -216,12 +216,10 @@
             $("#classifyList2").html(template("f5", data));//作用到表格
             var str = data.data.str;
 
-            var a = str.substr(0, 1);
-            var b = str.substr(1, 2);
-            var c = str.substr(2, 3);
-            checkIsSelect(a, 0);
-            checkIsSelect(b, 1);
-            checkIsSelect(c, 2);
+            for (var i = 0; i < str.length; i++) {
+                checkIsSelect(str[i], i);
+            }
+            
             editor.html(data.data.statement);
             setTimeout(function () {
                 $("#cke_content_ck").hide();
@@ -229,6 +227,9 @@
                 ue.setContent(data.data.statement);
             }, 2000);
 
+            $("input[name=apply]").change(function () {
+                $(this).val($(this).is(':checked') ? 1 : 0);
+            });
 
 //            $("textarea[name=require]").val(data.data.require);
 //            $("textarea[name=process]").val(data.data.process);
@@ -242,20 +243,18 @@
     }
 
     function checkIsSelect(a, t) {
-        if (a == 3) {
-            document.getElementsByName("apply")[t].checked = true;
-            document.getElementsByName("apply")[t].value = 1;
+        if (parseInt(a) === 3) {
+            var el = $("input[data-apple="+t+"]");
+            el.attr('checked',true);
+            el.val(1);
         }
     }
 
     function release() {
         var str = "";
-        $(".apply input").each(function () {
-            if ($(this).is(':checked')) {
-                $(this).val(1);
-            }
+        $("input[name=apply]").each(function () {
             str += $(this).val();
-        })
+        });
         var id = "${id}";
 
         var title = $("input[name=title]").val();
