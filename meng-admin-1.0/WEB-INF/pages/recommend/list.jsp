@@ -96,9 +96,10 @@
                         查看</a>
                         {{else}}{{/if}}
                     </td>
-                    <td style="text-align:center;vertical-align:middle;">{{if good.type=="LIVE"}}<font color="#adff2f">直播</font>{{else
-                        if good.type=="VIDEO"}}<font color="blue">视频</font>{{else if good.type=="CURRICULUM"}}<font
-                                color="red">课程</font>
+                    <td style="text-align:center;vertical-align:middle;">
+                        {{if good.type=="LIVE"}}<font color="#adff2f">直播</font>
+                        {{else if good.type=="VIDEO"}}<font color="blue">视频</font>
+                        {{else if good.type=="CURRICULUM"}}<font color="red">课程</font>
                         {{else if good.type=="ACTIVITY" }}<font color="yellow">活动</font>{{/if}}
                     </td>
                     <td style="text-align:center;vertical-align:middle;">{{good.sort}}</td>
