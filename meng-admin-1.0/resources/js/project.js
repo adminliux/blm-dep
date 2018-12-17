@@ -8,7 +8,7 @@ var urlList = '';
     var project = function (apiType, source) {
         global.apiType = apiType;
         if (!cm.stringIsEmpty(apiType)) {
-            if (apiType == "API") {
+            if (apiType === "API") {
                 //apiHost = apiHost + "/api/json";
             }
         }
@@ -68,7 +68,11 @@ var urlList = '';
             } else {
                 data = $.extend(d, data);
             }
-            console.log("===================测试==================="+realUrl);
+            for (var key in data) {
+                var _v = data[key];
+                if (_v === "" || _v === null) delete data[key];
+            }
+            console.log("===================测试===================" + realUrl);
             var opt = {
                 data: data,
                 type: 'post', // HTTP请求类型
@@ -79,7 +83,7 @@ var urlList = '';
 //                    获取商品上传地址
                     var imgUrl = data.data;
                     if (imgUrl != '[object Object]' && imgUrl != null) {
-                        urlList += imgUrl+",";
+                        urlList += imgUrl + ",";
                     }
                     p.done(data);
 
@@ -87,7 +91,7 @@ var urlList = '';
                 url: realUrl,
                 error: function (xhr) {
                     //异常处理；
-                    alert('接口调用失败：\ncode:' +xhr.status);
+                    alert('接口调用失败：\ncode:' + xhr.status);
                 }
             };
             if (apiType == "API") {
@@ -132,7 +136,7 @@ var urlList = '';
          * @param {Object} data
          * @param {Object} setting
          */
-        ajaxUploadFileUrl: function (uri, data, setting,isL) {
+        ajaxUploadFileUrl: function (uri, data, setting, isL) {
             var fileSetting = {
                 processData: false,
                 contentType: false,
@@ -141,19 +145,19 @@ var urlList = '';
             if (setting !== null) {
                 fileSetting = cm.merge(fileSetting, setting)
             }
-            return this.ajax(uri, data, fileSetting,isL);
+            return this.ajax(uri, data, fileSetting, isL);
         },
         /**
          * 上传文件
          */
         ajaxUploadFiles: function (data, setting) {
-            return this.ajaxUploadFileUrl('/file/upload/batch', data, setting,true);
+            return this.ajaxUploadFileUrl('/file/upload/batch', data, setting, true);
         },
         /**
          * 上传文件
          */
-        ajaxUploadVideoFile: function (uri,data, setting,isL) {
-            return this.ajaxUploadFileUrl(uri, data, setting,isL);
+        ajaxUploadVideoFile: function (uri, data, setting, isL) {
+            return this.ajaxUploadFileUrl(uri, data, setting, isL);
         },
         /**
          * json弹出消息提示框
@@ -232,7 +236,7 @@ if (promise) {
                 if (callback) callback(data);
                 return this;
             }
-            if(data.code =="OVERTIME"){
+            if (data.code == "OVERTIME") {
                 top.location = "../to/login";
             }
             if (data.code == code) {
