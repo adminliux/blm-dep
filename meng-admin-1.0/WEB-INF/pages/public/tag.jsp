@@ -11,7 +11,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <script>
     var path = "${config.apiHost}";
-    //path = "http://localhost:8081";
+    //path = "http://localhost:8080/meng_api_war_exploded";
     var apiHost = path + "/api/json";
     path = apiHost;
 </script>

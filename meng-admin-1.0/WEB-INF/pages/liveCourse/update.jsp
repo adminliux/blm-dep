@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%>
+         pageEncoding="utf-8" %>
 <!-- 引入tag.jsp -->
-<%@include file="../public/tag.jsp"%>
+<%@include file="../public/tag.jsp" %>
 <%
     request.setCharacterEncoding("UTF-8");
     String htmlData = request.getParameter("content2") != null ? request.getParameter
@@ -10,20 +10,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>修改视频</title>
+    <title>修改课程</title>
     <!-- 引入css -->
-    <link rel="stylesheet" type="text/css" href="${path}/resources/static/h-ui/css/H-ui.min.css" />
-    <link rel="stylesheet" type="text/css" href="${path}/resources/static/h-ui.admin/css/H-ui.admin.css" />
-    <link rel="stylesheet" type="text/css" href="${path}/resources/lib/Hui-iconfont/1.0.7/iconfont.css" />
-    <link rel="stylesheet" type="text/css" href="${path}/resources/lib/icheck/icheck.css" />
-    <link rel="stylesheet" type="text/css" href="${path}/resources/static/h-ui.admin/skin/default/skin.css" id="skin" />
-    <link rel="stylesheet" type="text/css" href="${path}/resources/area/jquery.inputbox.css" />
-    <link type="text/css" href="${path}/kindEditor/themes/default/default.css" />
-    <link type="text/css" href="${path}/kindEditor/plugins/code/prettify.css" />
-    <link type="text/css" rel="stylesheet" href="${path}/kindEditor/themes/default/default.css " />
+    <link rel="stylesheet" type="text/css" href="${path}/resources/static/h-ui/css/H-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="${path}/resources/static/h-ui.admin/css/H-ui.admin.css"/>
+    <link rel="stylesheet" type="text/css" href="${path}/resources/lib/Hui-iconfont/1.0.7/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="${path}/resources/lib/icheck/icheck.css"/>
+    <link rel="stylesheet" type="text/css" href="${path}/resources/static/h-ui.admin/skin/default/skin.css" id="skin"/>
+    <link rel="stylesheet" type="text/css" href="${path}/resources/area/jquery.inputbox.css"/>
+    <link type="text/css" href="${path}/kindEditor/themes/default/default.css"/>
+    <link type="text/css" href="${path}/kindEditor/plugins/code/prettify.css"/>
+    <link type="text/css" rel="stylesheet" href="${path}/kindEditor/themes/default/default.css "/>
     <!-- 编辑器-->
-    <link rel="stylesheet" href="${path}/kindEditor/themes/default/default.css" />
-    <link rel="stylesheet" href="${path}/kindEditor/plugins/code/prettify.css" />
+    <link rel="stylesheet" href="${path}/kindEditor/themes/default/default.css"/>
+    <link rel="stylesheet" href="${path}/kindEditor/plugins/code/prettify.css"/>
     <script charset="utf-8" src="${path}/kindEditor/js/kindEditor.js"></script>
     <script charset="utf-8" src="${path}/kindEditor/lang/zh_CN.js"></script>
     <script type="text/javascript" src="${path}/resources/lib/jquery/1.9.1/jquery.min.js"></script>
@@ -42,13 +42,14 @@
     <script charset="utf-8" src="${path}/kindEditor/plugins/link/link.js"></script>
     <script charset="utf-8" src="${path}/kindEditor/plugins/multiimage/multiimage.js"></script>
     <script charset="utf-8" src="${path}/kindEditor/plugins/pagebreak/pagebreak.js"></script>
-    <script charset="utf-8" src="${path}/kindEditor/plugins/quickformat/quickformat.js" ></script>
+    <script charset="utf-8" src="${path}/kindEditor/plugins/quickformat/quickformat.js"></script>
 
-    <link type="text/css" rel="stylesheet" href="${path}/resources/uploadimg/control/css/zyUpload.css" />
+    <link type="text/css" rel="stylesheet" href="${path}/resources/uploadimg/control/css/zyUpload.css"/>
     <style>
-        input[type="radio"], input[type="checkbox"]{width:20px;}
+        input[type="radio"], input[type="checkbox"] {
+            width: 20px;
+        }
     </style>
-
 
 
 </head>
@@ -84,15 +85,18 @@
     </div>
 </div>
 
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 课程管理 <span class="c-gray en">&gt;</span> 修改课程 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 课程管理 <span
+        class="c-gray en">&gt;</span> 修改课程 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+                                              href="javascript:location.replace(location.href);" title="刷新"><i
+        class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container" id="classifyList2">
 </div>
-<div  class="page-container">
+<div class="page-container">
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>简介：</label>
-        <textarea name="content2" cols="100" rows="8" id ="roomDesc"
+        <textarea name="content2" cols="100" rows="8" id="roomDesc"
                   style="width:700px;height:200px;visibility:hidden;"><%=htmlspecialchars(htmlData)%></textarea>
-        <br />
+        <br/>
     </div>
 
     <br>
@@ -117,7 +121,8 @@
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>课程价格(单节)：</label>
         <div class="formControls col-xs-8 col-sm-9">
-            <input type="text" class="input-text" placeholder="课程价格(单节)" name="price" value="{{data.price}}" onkeyup="value=value.replace(/[^\d.]/g,'')">
+            <input type="text" class="input-text" placeholder="课程价格(单节)" name="price" value="{{data.price}}"
+                   onkeyup="value=value.replace(/[^\d.]/g,'')">
         </div>
     </div>
     <br>
@@ -126,6 +131,13 @@
         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>课程类别：</label>
         <div class="formControls col-xs-8 col-sm-9">
             <select name="classifyId" class="select" id="classifyList">
+            </select>
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>状态：</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <select name="status" class="select" id="statusType">
             </select>
         </div>
     </div>
@@ -142,9 +154,12 @@
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>课程时间：</label>
         <div class="formControls col-xs-8 col-sm-9">
-            <input type="text" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="beginTime" style="width: 20%; height: 30px" placeholder="开始时间"  value="{{$timestampFormatYMDHM data.beginTime}}"/>
+            <input type="text" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="beginTime"
+                   style="width: 20%; height: 30px" placeholder="开始时间"
+                   value="{{$timestampFormatYMDHM data.beginTime}}"/>
             -
-            <input type="text" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="overTime" style="width: 20%; height: 30px" placeholder="结束时间" value="{{$timestampFormatYMDHM data.overTime}}" />
+            <input type="text" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="overTime"
+                   style="width: 20%; height: 30px" placeholder="结束时间" value="{{$timestampFormatYMDHM data.overTime}}"/>
         </div>
     </div>
     <br>
@@ -171,7 +186,8 @@
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>拼课结束时间：</label>
         <div class="formControls col-xs-8 col-sm-9">
-            <input type="text" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder="拼课结束时间" name="collageTime" value="{{$timestampFormatYMDHM data.collageTime}}">
+            <input type="text" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder="拼课结束时间"
+                   name="collageTime" value="{{$timestampFormatYMDHM data.collageTime}}">
         </div>
     </div>
     <br>
@@ -200,8 +216,11 @@
     <option value="{{good.id}}">{{good.name}}</option>
     {{/each}}
 </script>
-
-
+<script type="text/html" id="status_tp">
+    {{each data as key,value }}
+    <option value="{{value}}">{{key.explain}}</option>
+    {{/each}}
+</script>
 
 <!-- 基本js -->
 <script type="text/javascript" src="${path}/resources/lib/jquery/1.9.1/jquery.min.js"></script>
@@ -214,7 +233,6 @@
 <script type="text/javascript" src="${path}/resources/lib/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="${path}/resources/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="${path}/resources/datePicker/WdatePicker.js"></script>
-
 
 
 <!-- 核心js -->
@@ -240,19 +258,19 @@
 
 <script type="text/javascript">
     var editor;
-    KindEditor.ready(function(K) {
+    KindEditor.ready(function (K) {
         editor = K.create('textarea[name="content2"]', {
-            cssPath : '${path}/kindEditor/plugins/code/prettify.css',
-            uploadJson : '${path}/kindEditor/jsp/upload_json.jsp',
-            fileManagerJson : '${path}/kindEditor/jsp/file_manager_json.jsp',
-            allowFileManager : true,
-            afterCreate : function() {
+            cssPath: '${path}/kindEditor/plugins/code/prettify.css',
+            uploadJson: '${path}/kindEditor/jsp/upload_json.jsp',
+            fileManagerJson: '${path}/kindEditor/jsp/file_manager_json.jsp',
+            allowFileManager: true,
+            afterCreate: function () {
                 var self = this;
-                K.ctrl(document, 13, function() {
+                K.ctrl(document, 13, function () {
                     self.sync();
                     document.forms['example'].submit();
                 });
-                K.ctrl(self.edit.doc, 13, function() {
+                K.ctrl(self.edit.doc, 13, function () {
                     self.sync();
                     document.forms['example'].submit();
                 });
@@ -263,65 +281,70 @@
     });
 
 
+    function findClassify(id, status) {
+        Project.ajax("/global/classify/list", null, null, true).ajaxOK(function (data) {
+            $("#classifyList").html(template("f4", data));//作用到表格
+            $("#classifyList option[value='" + id + "']").attr("selected", true);
 
-    function findClassify(id) {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
-            $("#classifyList").html(template("f4",data));//作用到表格
-            $("#classifyList option[value='"+id+"']").attr("selected",true);
+            var $sy = $("#statusType");
+            //状态管理
+            Project.ajax("/enum/type", {type: "LiveCourseStatus"}).ajaxOK(function (data) {
+                $sy.append(template("status_tp", data));
+                $sy.val(status);
+            });
         });
     }
 
     function findVideo() {
-        var id="${id}";
-        Project.ajax("/live/live/course/detail",{id:id},null,true).ajaxOK(function(data) {
-            $("#classifyList2").html(template("f5",data));//作用到表格
+        var id = "${id}";
+        Project.ajax("/live/live/course/detail", {id: id}, null, true).ajaxOK(function (data) {
+            $("#classifyList2").html(template("f5", data));//作用到表格
             editor.html(data.data.roomDesc);
-            findClassify(data.data.classifyId);
+            findClassify(data.data.classifyId, data.data.status);
         });
     }
 
     function release() {
-        var id="${id}";
-        var classifyId=$("select[name=classifyId]").val();
-        var roomTitle=$("input[name=roomTitle]").val();
-        var userId=$("input[name=userId]").val();
-        var previewImg=$("input[name=previewImg]").val();
-        var price=$("input[name=price]").val();
-        var beginTime=$("input[name=beginTime]").val();
-        var overTime=$("input[name=overTime]").val();
+        var id = "${id}";
+        var classifyId = $("select[name=classifyId]").val();
+        var roomTitle = $("input[name=roomTitle]").val();
+        var userId = $("input[name=userId]").val();
+        var previewImg = $("input[name=previewImg]").val();
+        var price = $("input[name=price]").val();
+        var beginTime = $("input[name=beginTime]").val();
+        var overTime = $("input[name=overTime]").val();
         var personNum = $("input[name=personNum]").val();
         var spellPrice = $("input[name=spellPrice]").val();
         var collageTime = $("input[name=collageTime]").val();
-        var roomDesc= editor.html();
+        var roomDesc = editor.html();
 
-        if("NaN-aN-aN aN:aN" == overTime){
+        if ("NaN-aN-aN aN:aN" == overTime) {
             overTime = "1960-05-08 00:00:00";
         }
-        if(isNaN(personNum)){
+        if (isNaN(personNum)) {
             alert("拼班人数不合法");
-            return ;
+            return;
         }
-        if(isNaN(spellPrice)){
+        if (isNaN(spellPrice)) {
             alert("拼班价不合法");
-            return ;
+            return;
         }
 
-        var p=$.extend({id:id},{price: price},{userId: userId},{previewImg: previewImg},{roomDesc: roomDesc},
-            {classifyId: classifyId},{roomDesc:roomDesc},{roomTitle:roomTitle},{beginTime:beginTime},{overTime:overTime},
-            {personNum:personNum}, {spellPrice:spellPrice},{collageTime:collageTime});
-             Project.ajax("/live/update",p,null,true).ajaxOK(function(data) {
-        },true);
+        var p = $.extend({id: id}, {price: price}, {userId: userId}, {previewImg: previewImg}, {roomDesc: roomDesc},
+            {classifyId: classifyId}, {roomDesc: roomDesc}, {roomTitle: roomTitle}, {beginTime: beginTime}, {overTime: overTime},
+            {personNum: personNum}, {spellPrice: spellPrice}, {collageTime: collageTime});
+        Project.ajax("/live/update", p, null, true).ajaxOK(function (data) {
+        }, true);
     }
 
     function preview(file) {
         var fd = new FormData();
-        fd.append("files",file.files[0]);
-        Project.ajaxUploadFiles(fd).ajaxOK(function(data) {
-            $("#zhaopian").attr("src",data.data[0]);
+        fd.append("files", file.files[0]);
+        Project.ajaxUploadFiles(fd).ajaxOK(function (data) {
+            $("#zhaopian").attr("src", data.data[0]);
             $("input[name=previewImg]").val(data.data[0]);
         });
     }
-
 
 
 </script>
