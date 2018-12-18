@@ -111,7 +111,7 @@
     </div>
 </header>
 <!-- 菜单模块 -->
-<aside class="Hui-aside" style="background-color: green;">
+<aside class="Hui-aside">
     <input runat="server" id="divScrollValue" type="hidden" value=""/>
     <div class="menu_dropdown bk_2" style="margin-top: 40px">
         <%--<dl id="menu-admin">--%>
