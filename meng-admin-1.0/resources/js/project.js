@@ -31,6 +31,11 @@ var urlList = '';
             }
             $("head").append($('<style>.public-red{background:' + color + ' !important;}</style>'));
         },
+        ajaxGet: function (url, data, setting, isLocal) {
+            setting = setting || {};
+            setting['type'] = "GET";
+            return this.ajax(url, data, setting, isLocal);
+        },
         /**
          * ajax请求数据
          * @param {Object} url 地址
@@ -44,7 +49,7 @@ var urlList = '';
             var realUrl = apiHost + url,
                 p = new promise.Promise();
 
-            if (isLocal == true) {
+            if (isLocal === true) {
                 if (path) {
                     url = path + url;
                 }
@@ -82,7 +87,7 @@ var urlList = '';
 
 //                    获取商品上传地址
                     var imgUrl = data.data;
-                    if (imgUrl != '[object Object]' && imgUrl != null) {
+                    if (imgUrl !== '[object Object]' && imgUrl != null) {
                         urlList += imgUrl + ",";
                     }
                     p.done(data);
@@ -94,7 +99,7 @@ var urlList = '';
                     alert('接口调用失败：\ncode:' + xhr.status);
                 }
             };
-            if (apiType == "API") {
+            if (apiType === "API") {
                 opt.dataType = "json";
             }
             if (setting != null) {

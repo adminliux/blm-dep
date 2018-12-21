@@ -159,6 +159,18 @@
 
             </dd>
         </dl>
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">&#xe622;</i> 系统配置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a data-href="${path}/page/config/curriculum" data-title="课程配置项"
+                                           href="javascript:;">课程配置</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
 
 
         <dl id="menu-admin">
