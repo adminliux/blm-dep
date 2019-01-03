@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 查找最新的schemaLocation 访问 http://www.springframework.org/schema/ -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!-- 引入出错处理接口配置 -->
+    <import resource="classpath:common-spring-mvc.xml"/>
+    <import resource="classpath:context/spring-mybatis.xml"/>
+    <import resource="classpath:common-spring-access.xml"/>
+
+    <context:component-scan base-package="com.daolezuche.controller"/>
+
+    <!-- 对于不需要的拦截有服务器默认处理 -->
+    <mvc:default-servlet-handler/>
+
+    <bean id="freemarkerConfig"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/page/"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="number_format">0.##########</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="classic_compatible">true</prop>
+                <prop key="template_exception_handler">ignore</prop>
+                <prop key="auto_import">frame.ftl as html</prop>
+                <prop key="auto_include">var.ftl</prop>
+            </props>
+        </property>
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="config" value-ref="config"/>
+            </map>
+        </property>
+    </bean>
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="suffix" value=".ftl"/>
+        <property name="cache" value="false"/>
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="exposeSessionAttributes" value="true"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="requestContextAttribute" value="request"/>
+        <property name="order" value="0"/>
+        <property name="allowSessionOverride" value="true"/>
+    </bean>
+
+
+    <mvc:interceptors>
+        <!--接口权限拦截-->
+        <mvc:interceptor>
+            <mvc:mapping path="/api/json/**"/>
+            <bean class="com.rpframework.module.common.bottom.interceptor.JurisdictionInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <!--权限地址初始化-->
+    <bean id="apiAccessInterfaceInspect"
+          class="com.rpframework.module.common.bottom.listener.AccessInterfaceInspect">
+        <constructor-arg index="0">
+            <list>
+                <value>com.daolezuche.controller</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean class="com.rpframework.module.common.bottom.controller.SmsController"/>
+</beans>
